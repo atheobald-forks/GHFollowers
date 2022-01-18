@@ -1,0 +1,13 @@
+name: iOS starter workflow
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@master
+    - name: Build App
+      run: xcodebuild -project 'GHFollowers.xcodeproj' -scheme 'GHFollowers' -destination 'generic/platform=iOS' -configuration Release build CODE_SIGNING_ALLOWED=NO
